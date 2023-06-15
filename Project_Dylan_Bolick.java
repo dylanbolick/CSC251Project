@@ -8,6 +8,8 @@ import java.util.Scanner;
 public class Project_Dylan_Bolick {
     public static void main(String[] args) {
         List<Policy> policies = new ArrayList<>();
+        int smokersCount = 0;
+        int nonSmokersCount = 0;
 
         try {
             File file = new File("PolicyInformation.txt");
@@ -27,9 +29,15 @@ public class Project_Dylan_Bolick {
 
                     Policy policy = new Policy(policyNumber, providerName, firstName, lastName, age, smokingStatus, height, weight);
                     policies.add(policy);
-                } catch (NoSuchElementException e) {
-                    System.out.println("Invalid file format: Insufficient lines for a complete policy entry.");
-                    return;
+                    
+                    if (smokingStatus.equalsIgnoreCase("smoker")) {
+                      smokersCount++;
+                  } else if (smokingStatus.equalsIgnoreCase("non-smoker")) {
+                      nonSmokersCount++;
+                  }
+              } catch (NoSuchElementException e) {
+                  System.out.println("Invalid file format: Insufficient lines for a complete policy entry.");
+                  return;
                 }
             }
 
@@ -52,5 +60,8 @@ public class Project_Dylan_Bolick {
             System.out.printf("Policyholder's BMI: %.2f%n", policy.calculateBMI());
             System.out.printf("Policy Price: $%.2f%n", policy.calculatePolicyPrice());
         }
+        
+        System.out.println("\nNumber of Smokers: " + smokersCount);
+        System.out.println("Number of Non-Smokers: " + nonSmokersCount);
     }
 }
