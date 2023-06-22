@@ -162,14 +162,15 @@ public class PolicyHolder {
    
       @Override
  public String toString() {
-    return "PolicyHolder{" +
-            "policyholderFirstName='" + policyholderFirstName + '\'' +
-            ", policyholderLastName='" + policyholderLastName + '\'' +
-            ", policyholderAge=" + policyholderAge +
-            ", policyholderSmokingStatus='" + policyholderSmokingStatus + '\'' +
-            ", policyholderHeight=" + policyholderHeight +
-            ", policyholderWeight=" + policyholderWeight +
-            '}';
+     StringBuilder sb = new StringBuilder();
+     sb.append("Policyholder's First Name: ").append(policyholderFirstName).append("\n");
+     sb.append("Policyholder's Last Name: ").append(policyholderLastName).append("\n");
+     sb.append("Policyholder's Age: ").append(policyholderAge).append("\n");
+     sb.append("Policyholder's Smoking Status (Y/N): ").append(policyholderSmokingStatus).append("\n");
+     sb.append("Policyholder's Height: ").append(policyholderHeight).append(" inches").append("\n");
+     sb.append("Policyholder's Weight: ").append(policyholderWeight).append(" pounds").append("\n");
+     sb.append("Policyholder's BMI: ").append(String.format("%.2f", policyHolder.calculateBMI())).append("\n");
+     return sb.toString();
    
       }     
 }  
