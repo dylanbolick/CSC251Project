@@ -26,8 +26,9 @@ public class Project_Dylan_Bolick {
                     double height = Double.parseDouble(scanner.nextLine());
                     double weight = Double.parseDouble(scanner.nextLine());
                     scanner.nextLine(); // Read the empty line after each policy
-
-                    Policy policy = new Policy(policyNumber, providerName, firstName, lastName, age, smokingStatus, height, weight);
+                    
+                    PolicyHolder policyHolder = new PolicyHolder(firstName, lastName, age, smokingStatus, height, weight);
+                    Policy policy = new Policy(policyNumber, providerName, policyHolder);
                     policies.add(policy);
                     
                     if (smokingStatus.equalsIgnoreCase("smoker")) {
@@ -49,18 +50,11 @@ public class Project_Dylan_Bolick {
 
         // Print information for each policy
         for (Policy policy : policies) {
-            System.out.println("\nPolicy Number: " + policy.getPolicyNumber());
-            System.out.println("Provider Name: " + policy.getProviderName());
-            System.out.println("Policyholder's First Name: " + policy.getPolicyholderFirstName());
-            System.out.println("Policyholder's Last Name: " + policy.getPolicyholderLastName());
-            System.out.println("Policyholder's Age: " + policy.getPolicyholderAge());
-            System.out.println("Policyholder's Smoking Status: " + policy.getPolicyholderSmokingStatus());
-            System.out.println("Policyholder's Height: " + policy.getPolicyholderHeight() + " inches");
-            System.out.println("Policyholder's Weight: " + policy.getPolicyholderWeight() + " pounds");
-            System.out.printf("Policyholder's BMI: %.2f%n", policy.calculateBMI());
-            System.out.printf("Policy Price: $%.2f%n", policy.calculatePolicyPrice());
+            System.out.println(policy); // Implicitly calls toString method
+            System.out.printf("Policyholder's BMI: %.2f%n", policy.getPolicyHolder().calculateBMI());
+            System.out.printf("Policy Price: $%.2f%n", policy.getPolicyHolder().calculatePolicyPrice());
         }
-        
+
         System.out.println("\nNumber of Smokers: " + smokersCount);
         System.out.println("Number of Non-Smokers: " + nonSmokersCount);
     }
