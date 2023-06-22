@@ -162,6 +162,7 @@ public class PolicyHolder {
    
       @Override
  public String toString() {
+ double bmi = calculateBMI();
      StringBuilder sb = new StringBuilder();
      sb.append("Policyholder's First Name: ").append(policyholderFirstName).append("\n");
      sb.append("Policyholder's Last Name: ").append(policyholderLastName).append("\n");
@@ -169,7 +170,7 @@ public class PolicyHolder {
      sb.append("Policyholder's Smoking Status (Y/N): ").append(policyholderSmokingStatus).append("\n");
      sb.append("Policyholder's Height: ").append(policyholderHeight).append(" inches").append("\n");
      sb.append("Policyholder's Weight: ").append(policyholderWeight).append(" pounds").append("\n");
-     sb.append("Policyholder's BMI: ").append(String.format("%.2f", policyHolder.calculateBMI())).append("\n");
+     sb.append("Policyholder's BMI: ").append(String.format("%.2f", calculateBMI())).append("\n");
      return sb.toString();
    
       }     
