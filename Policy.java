@@ -2,6 +2,7 @@ public class Policy {
    private static int policyCount = 0;
    private String policyNumber;
    private String providerName;
+   private PolicyHolder policyHolder;
    
    /**
     * Constructs a Policy object with default values for all fields.
@@ -18,9 +19,10 @@ public class Policy {
     * @param policyNumber the policy number
     * @param providerName the provider name
     */
-   public Policy(String policyNumber, String providerName) {
+   public Policy(String policyNumber, String providerName, PolicyHolder policyHolder) {
       this.policyNumber = policyNumber;
       this.providerName = providerName;
+      this.policyHolder = policyHolder;
       policyCount++;
    }
  
@@ -60,6 +62,14 @@ public class Policy {
       this.providerName = providerName;
    }
    
+   public PolicyHolder getPolicyHolder() {
+      return policyHolder;
+   }
+   
+   public void setPolicyHolder(PolicyHolder policyHolder) {
+      this.policyHolder = policyHolder;
+   }
+   
    public static int getPolicyCount() {
       return policyCount;
    }
@@ -69,6 +79,7 @@ public class Policy {
       return "Policy{" +
               "policyNumber='" + policyNumber + '\'' +
               ", providerName='" + providerName + '\'' +
+              ", policyHolder=" + policyHolder +
               '}';
    }
 }
