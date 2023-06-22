@@ -158,7 +158,20 @@ public class PolicyHolder {
          }
          
      return baseFee + additionalFee;
-   }        
+   }
+   
+      @Override
+ public String toString() {
+    return "PolicyHolder{" +
+            "policyholderFirstName='" + policyholderFirstName + '\'' +
+            ", policyholderLastName='" + policyholderLastName + '\'' +
+            ", policyholderAge=" + policyholderAge +
+            ", policyholderSmokingStatus='" + policyholderSmokingStatus + '\'' +
+            ", policyholderHeight=" + policyholderHeight +
+            ", policyholderWeight=" + policyholderWeight +
+            '}';
+   
+      }     
 }  
        
 
