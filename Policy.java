@@ -18,6 +18,7 @@ public class Policy {
     *
     * @param policyNumber the policy number
     * @param providerName the provider name
+    * @param policyHolder  the policy holder object
     */
    public Policy(String policyNumber, String providerName, PolicyHolder policyHolder) {
       this.policyNumber = policyNumber;
@@ -74,12 +75,13 @@ public class Policy {
       return policyCount;
    }
      
-   @Override
+      @Override
    public String toString() {
-      return "Policy{" +
-              "policyNumber='" + policyNumber + '\'' +
-              ", providerName='" + providerName + '\'' +
-              ", policyHolder=" + policyHolder +
-              '}';
+       StringBuilder sb = new StringBuilder();
+       sb.append("Policy Number: ").append(policyNumber).append("\n");
+       sb.append("Provider Name: ").append(providerName).append("\n");
+       sb.append(policyHolder.toString());
+       sb.append("Policy Price: $").append(String.format("%.2f", policyHolder.calculatePolicyPrice())).append("\n");
+       return sb.toString();
    }
 }
