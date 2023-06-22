@@ -51,11 +51,12 @@ public class Project_Dylan_Bolick {
         // Print information for each policy
         for (Policy policy : policies) {
             System.out.println(policy); // Implicitly calls toString method
-            System.out.printf("Policyholder's BMI: %.2f%n", policy.getPolicyHolder().calculateBMI());
-            System.out.printf("Policy Price: $%.2f%n", policy.getPolicyHolder().calculatePolicyPrice());
-        }
+            System.out.println();
+}
+         System.out.println("There were " + Policy.getPolicyCount() + " Policy objects created.");
 
-        System.out.println("\nNumber of Smokers: " + smokersCount);
-        System.out.println("Number of Non-Smokers: " + nonSmokersCount);
+         System.out.println("\nNumber of Smokers: " + smokersCount);
+         System.out.println("Number of Non-Smokers: " + nonSmokersCount);
+         
     }
 }
