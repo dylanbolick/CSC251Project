@@ -1,4 +1,5 @@
 public class Policy {
+   private static int policyCount = 0;
    private String policyNumber;
    private String providerName;
    
@@ -8,6 +9,7 @@ public class Policy {
    public Policy() {
       policyNumber = "";
       providerName = "";
+      policyCount++;
    }
  
    /**
@@ -19,6 +21,7 @@ public class Policy {
    public Policy(String policyNumber, String providerName) {
       this.policyNumber = policyNumber;
       this.providerName = providerName;
+      policyCount++;
    }
  
    /**
@@ -55,6 +58,10 @@ public class Policy {
     */
    public void setProviderName(String providerName) {
       this.providerName = providerName;
+   }
+   
+   public static int getPolicyCount() {
+      return policyCount;
    }
      
    @Override
